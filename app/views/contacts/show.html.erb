@@ -1,0 +1,18 @@
+
+<% content_for(:page_header) do %>
+  <%= @contact.name %>
+<% end %>
+<label><%= "Phone Numbers:" %></label><br/>
+<% @contact.phone_numbers.each_with_index do |phone_number, index| %>
+   <b><%= "Phone Number #{index + 1}: " %></b><%= phone_number.number %><br/>
+<% end %><br/>
+
+<% if  @contact.postal_addresses.any? %>
+  <b><%= "Postal Addresses:" %></b><br/>
+  <% @contact.postal_addresses.each_with_index do |postal_address, index| %>
+    </b><%= "Postal Addresse #{index + 1}: " %></b><%= postal_address.address %><br/>
+  <% end %>
+<% end %><br/>
+
+<%= link_to 'Edit', edit_contact_path(@contact), class:"btn btn-primary"  %>
+<%= link_to 'All contacts', contacts_path, class:"btn btn-primary" %>

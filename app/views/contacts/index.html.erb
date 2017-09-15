@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<% content_for(:page_header) do %>
+    Contacts
+<% end %>
+<%= link_to content_tag(:i, "", class: "fa fa-plus-circle") + " New contact", new_contact_path %>
+
+<table class="display table table-striped table-sm table-hover">
+  <thead>
+    <tr>
+      <th><%= "Name" %></th>
+      <th><%= "Actions" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= link_to contact.name, contact %></td>
+        <td><%= link_to content_tag(:i, "", class: "fa fa-pencil-square-o"), edit_contact_path(contact) %>
+        <%= link_to content_tag(:i, "", class: "fa fa-trash-o"), contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
