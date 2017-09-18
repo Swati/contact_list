@@ -3,3 +3,5 @@ FactoryGirl.define do
     sequence(:name) { |i| "contact#{i}" }
   end
 end
+
+
