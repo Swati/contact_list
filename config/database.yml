@@ -4,8 +4,8 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  host: localhost
+  password: welcome1
+  host: mysql
 
 development:
   <<: *default
